@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuItem } from '../../interfaces/menu.interface';
 
 @Component({
   selector: 'app-inicio',
@@ -13,6 +12,18 @@ export class InicioComponent {
 ];
 
 public card = [{
+  titulo:'Pantalon para caballero',
+  precio:'$500.00',
+  img:'https://st.depositphotos.com/1016440/2534/i/450/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg',
+  descripccion:'Pantalon para caballero',
+},
+{
+  titulo:'Pantalon para caballero',
+  precio:'$500.00',
+  img:'https://st.depositphotos.com/1016440/2534/i/450/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg',
+  descripccion:'Pantalon para caballero',
+},
+{
   titulo:'Pantalon para caballero',
   precio:'$500.00',
   img:'https://st.depositphotos.com/1016440/2534/i/450/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg',

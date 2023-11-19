@@ -24,7 +24,6 @@ export class LayoutPageComponent {
     {
       label: 'Ver perfil',
       icon: 'pi pi-eye',
-
   },
 ];
 }

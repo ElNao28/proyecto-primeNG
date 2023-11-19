@@ -1,40 +1,41 @@
-<div class="flex flex-column pb-4 mb-5 shadow-5 w-full border-round">
 
-  <div class="flex flex-column mx-6 align-items-center sm:flex-row">
-    <img routerLink="Inicio" class="flex h-5rem m-2" src="../../../../assets/img/logo.png" alt="" />
-    <span class="p-input-icon-right w-full">
-      <i class="pi pi-search"></i>
-      <input class="w-full" type="text" pInputText />
-    </span>
-    <div class="flex flex-row">
-      <p-splitButton
-        label="Perfil"
-        icon="pi pi-user"
-        [model]="items"
-        styleClass="p-button-text"
-      ></p-splitButton>
-      <p-button
-        label="Carrito"
-        icon="pi pi-shopping-cart"
-        styleClass="p-button-text"
-        routerLink="carrito"
-      ></p-button>
+  <div class="flex flex-column bg-pink-100 pb-4 mb-5 shadow-5 w-full ">
+    <div class="flex flex-column mx-6 align-items-center sm:flex-row">
+      <img routerLink="Inicio" class="flex h-5rem m-2" src="../../../../assets/img/logo.png" alt="" />
+      <span class="p-input-icon-right w-full">
+        <i class="pi pi-search"></i>
+        <input class="w-full" type="text" pInputText />
+      </span>
+      <div class="flex flex-row">
+        <p-splitButton
+          label="Perfil"
+          icon="pi pi-user"
+          [model]="items"
+          styleClass="p-button-text"
+        ></p-splitButton>
+        <p-button
+          label="Carrito"
+          icon="pi pi-shopping-cart"
+          styleClass="p-button-text"
+          routerLink="carrito"
+        ></p-button>
+      </div>
+    </div>
+
+    <div class="flex ml-8 flex-column lg:flex-row">
+      <div class="col-2 sm:col-3">
+        <a routerLink="Inicio">Inicio</a>
+      </div>
+      <div class="col-2 sm:col-3">
+        <a routerLink="productos">Productos</a>
+      </div>
+      <div class="col-2 sm:col-3">
+        <a routerLink="mis-compras">Mis compras</a>
+      </div>
+      <div class="col-2 sm:col-3">
+        <a routerLink="">Atencion al cliente</a>
+      </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
 
-  <div class="flex ml-8 flex-column lg:flex-row">
-    <div class="col-2 sm:col-3">
-      <a routerLink="Inicio">Inicio</a>
-    </div>
-    <div class="col-2 sm:col-3">
-      <a routerLink="productos">Productos</a>
-    </div>
-    <div class="col-2 sm:col-3">
-      <a routerLink="mis-compras">Mis compras</a>
-    </div>
-    <div class="col-2 sm:col-3">
-      <a routerLink="">Atencion al cliente</a>
-    </div>
-  </div>
-</div>
-<router-outlet></router-outlet>

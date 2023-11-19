@@ -1,2 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer{
+  text-align: center;
+  background-color: rgb(46, 45, 45);
+  color: aliceblue;
+  margin-top: auto;
+}
+.row a{
+  text-decoration: none;
+  color: rgb(255, 246, 246);
+}
+.redes-sociales {
+  margin-bottom: 10px;
+}
+
+.redes-sociales a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.redes-sociales img {
+  width: 30px;
+  height: 30px;
+}
