@@ -8,6 +8,12 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
+import { DataViewModule } from 'primeng/dataview';
+import { RatingModule } from 'primeng/rating';
+import { TreeModule } from 'primeng/tree';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { PaginatorModule } from 'primeng/paginator';
+import { CascadeSelectModule } from 'primeng/cascadeselect';
 
 @NgModule({
   imports: [
@@ -21,7 +27,13 @@ import { CardModule } from 'primeng/card';
     SplitButtonModule,
     SpeedDialModule,
     MenubarModule,
-    CardModule
+    CardModule,
+    DataViewModule,
+    RatingModule,
+    TreeModule,
+    BreadcrumbModule,
+    PaginatorModule,
+    CascadeSelectModule
 
   ]
 })

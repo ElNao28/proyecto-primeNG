@@ -1,1 +1,81 @@
-<p>view-products-page works!</p>
+<div class="mb-3">
+
+    <div class="flex pl-5 justify-content-end mx-4">
+      <p class="mr-2">Ordenar por</p>
+      <p-cascadeSelect  [options]="countries" optionLabel="name" optionGroupLabel="name" [optionGroupChildren]="[]" [style]="{ minWidth: '14rem' }" placeholder="Selecciona una opcion"></p-cascadeSelect>
+    </div>
+
+    <div class="flex flex-column lg:flex-row m-3">
+      <div class="w-full lg:w-3 mr-2 mb-2">
+        <div class="card flex justify-content-start">
+          <p-tree class="w-full" [value]="files"></p-tree>
+        </div>
+      </div>
+      <div class="w-full products">
+        <div class="card">
+          <p-dataView #dv [value]="products">
+            <ng-template let-product pTemplate="listItem">
+              <div class="col-12">
+                <div
+                  class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
+                >
+                  <img
+                    class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
+                    [src]="
+                      'https://primefaces.org/cdn/primeng/images/demo/product/' +
+                      product.image
+                    "
+                    [alt]="product.name"
+                  />
+                  <div
+                    class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4"
+                  >
+                    <div
+                      class="flex flex-column align-items-center sm:align-items-start gap-3"
+                    >
+                      <div class="text-2xl font-bold text-900" >
+                       <a routerLink="/user/view/3">{{ product.name }}</a>
+                      </div>
+                      <p-rating
+                        (ngModel)="(product.rating)"
+                        [readonly]="true"
+                        [cancel]="false"
+                      ></p-rating>
+                      <div class="flex align-items-center gap-3">
+                        <span class="flex align-items-center gap-2">
+                          <i class="pi pi-tag"></i>
+                          <span class="font-semibold">{{ product.category }}</span>
+                        </span>
+                        <p-tag
+                          [value]="product.inventoryStatus"
+                          severity="getSeverity(product)"
+                        ></p-tag>
+                      </div>
+                    </div>
+                    <div
+                      class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2"
+                    >
+                      <span class="text-2xl font-semibold">{{
+                        "$" + product.price
+                      }}</span>
+                      <button
+                        pButton
+                        icon="pi pi-shopping-cart"
+                        class="md:align-self-end mb-2 p-button-rounded"
+                        [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"
+                      ></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-dataView>
+        </div>
+      </div>
+    </div>
+    <div class="card flex justify-content-center ">
+      <p-paginator  [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+  </div>
+
+
+</div>

@@ -25,7 +25,7 @@ const routes: Routes = [
         component:MyShoppingPageComponent
       },{
         path:'productos',
-        component:ViewProductsPageComponent
+        component:ViewProductsPageComponent,
       },
       {
         path:'view/:id',
