@@ -9,6 +9,7 @@ import { ViewProductsPageComponent } from './pages/view-products-page/view-produ
 import { ViewProductPageComponent } from './pages/view-product-page/view-product-page.component';
 import { MyShoppingPageComponent } from './pages/my-shopping-page/my-shopping-page.component';
 import { PrimerNgModule } from '../primer-ng/primer-ng.module';
+import { CustomerSupportComponent } from './pages/customer-support/customer-support.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PrimerNgModule } from '../primer-ng/primer-ng.module';
     ViewProductsPageComponent,
     ViewProductPageComponent,
     MyShoppingPageComponent,
+    CustomerSupportComponent,
   ],
   imports: [
     CommonModule,

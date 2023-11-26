@@ -1,0 +1,38 @@
+<div class="mx-8 my-4">
+  <h1>Atencion al cliente</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, iusto error.
+    Voluptatum tempore reiciendis dolores officiis nulla molestias perferendis
+    odit unde, tempora accusantium consequatur sunt quaerat quidem, illo
+    quisquam nesciunt?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Repudiandae iure blanditiis officia, dolorem, et itaque consequuntur optio
+    tempora placeat commodi rem dolorum, amet corporis. Velit numquam aspernatur
+    tempora assumenda excepturi Lorem ipsum dolor sit amet consectetur
+    adipisicing elit. Necessitatibus facilis soluta consectetur ratione
+    molestiae quas expedita illo libero in, voluptatem reiciendis sint quis quae
+    modi pariatur, voluptatibus provident quos! Expedita!
+  </p>
+
+  <div class="bg-white border-round flex flex-column align-content-center align-items-center justify-content-center py-4">
+    <div class="flex flex-column px-3">
+      <label class="md:text-2xl my-2">Seleccione tipo de mensaje</label>
+      <p-cascadeSelect
+        styleClass="w-full"
+        placeholder="Selccione una opcion"
+        [options]="options"
+        optionLabel="name"
+        optionGroupLabel="name"
+        [optionGroupChildren]="[]"
+      ></p-cascadeSelect>
+      <label class="md:text-2xl my-2">Ingrese su mensaje</label>
+      <textarea
+        rows="5"
+        cols="100"
+        pInputTextarea
+        [autoResize]="true"
+        class="w-full"
+      ></textarea>
+      <p-button label="Enviar" styleClass="p-button-secondary mt-2"></p-button>
+    </div>
+  </div>
+</div>

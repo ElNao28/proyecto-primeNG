@@ -6,6 +6,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { CardPageComponent } from './pages/card-page/card-page.component';
 import { MyShoppingPageComponent } from './pages/my-shopping-page/my-shopping-page.component';
 import { ViewProductsPageComponent } from './pages/view-products-page/view-products-page.component';
+import { CustomerSupportComponent } from './pages/customer-support/customer-support.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,12 @@ const routes: Routes = [
       {
         path:'mis-compras',
         component:MyShoppingPageComponent
-      },{
+      },
+      {
+        path:'atencion-cliente',
+        component:CustomerSupportComponent
+      },
+      {
         path:'productos',
         component:ViewProductsPageComponent,
       },

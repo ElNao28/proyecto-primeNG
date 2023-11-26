@@ -14,6 +14,7 @@ import { TreeModule } from 'primeng/tree';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { PaginatorModule } from 'primeng/paginator';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
     TreeModule,
     BreadcrumbModule,
     PaginatorModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    InputTextareaModule
 
   ]
 })
