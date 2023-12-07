@@ -7,6 +7,8 @@ import { CardPageComponent } from './pages/card-page/card-page.component';
 import { MyShoppingPageComponent } from './pages/my-shopping-page/my-shopping-page.component';
 import { ViewProductsPageComponent } from './pages/view-products-page/view-products-page.component';
 import { CustomerSupportComponent } from './pages/customer-support/customer-support.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CreateAcountComponent } from './pages/create-acount/create-acount.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
       {
         path:'view/:id',
         component:ViewProductPageComponent
+      },
+      {
+        path:'login',
+        component:LoginComponent
+      },
+      {
+        path:'crear-cuenta',
+        component:CreateAcountComponent
       },
       {
         path:'**',

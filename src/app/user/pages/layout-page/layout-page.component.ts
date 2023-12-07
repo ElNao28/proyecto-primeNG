@@ -28,11 +28,12 @@ export class LayoutPageComponent implements OnInit{
     {
         label: 'Iniciar sesión',
         icon: 'pi pi-sign-in',
-        routerLink: 'mis-compras'
+        routerLink: 'login'
     },
     {
         label: 'Crear cuenta',
         icon: 'pi pi-user-plus',
+        routerLink: 'crear-cuenta'
 
     },
     {
