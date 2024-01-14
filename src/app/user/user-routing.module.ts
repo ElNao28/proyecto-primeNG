@@ -9,6 +9,7 @@ import { ViewProductsPageComponent } from './pages/view-products-page/view-produ
 import { CustomerSupportComponent } from './pages/customer-support/customer-support.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAcountComponent } from './pages/create-acount/create-acount.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path:'crear-cuenta',
         component:CreateAcountComponent
+      },
+      {
+        path:'recuperar-contraseña',
+        component:RecoverPasswordComponent
       },
       {
         path:'**',

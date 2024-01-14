@@ -2,20 +2,20 @@
 
   <div class="flex flex-column md:flex-row border-round  bg-white py-3 mb-3">
     <div>
-      <img class="w-10rem" src="https://http2.mlstatic.com/D_955342-MLM54956132285_042023-N.jpg" alt="">
+      <img class="w-10rem" src="https://lamarinamx.vtexassets.com/arquivos/ids/574115-800-auto?v=637975615254470000&width=800&height=auto&aspect=true" alt="">
     </div>
     <div class="ml-5 flex flex-column justify-content-center w-full md:w-6">
       <h2>Pantalon negro</h2>
       <div class="flex">
-        <a routerLink="" class="mr-3">Eliminar</a>
-        <a routerLink="">Ver mas</a>
+        <a class="mr-3">Eliminar</a>
+        <a routerLink="/user/view/10">Ver mas</a>
       </div>
     </div>
 
     <div class="flex md:justify-content-end md:align-items-center mt-2 mx-3 w-full">
-      <p-button *ngIf="cantidad >1" (click)="sumCantidad('-')" styleClass="p-button-secondary" label="-"></p-button>
+      <p-button *ngIf="cantidad >1" (click)="sumCantidad('-')" styleClass="p-button-secondary w-1" label="-"></p-button>
       <p class="mx-3">{{cantidad}}</p>
-      <p-button (click)="sumCantidad('+')" label="+"></p-button>
+      <p-button (click)="sumCantidad('+')" styleClass="" label="+"></p-button>
     </div>
   </div>
 

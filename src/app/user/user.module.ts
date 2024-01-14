@@ -12,6 +12,7 @@ import { PrimerNgModule } from '../primer-ng/primer-ng.module';
 import { CustomerSupportComponent } from './pages/customer-support/customer-support.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAcountComponent } from './pages/create-acount/create-acount.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CreateAcountComponent } from './pages/create-acount/create-acount.compo
     CustomerSupportComponent,
     LoginComponent,
     CreateAcountComponent,
+    RecoverPasswordComponent,
   ],
   imports: [
     CommonModule,

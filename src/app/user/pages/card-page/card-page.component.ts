@@ -14,7 +14,6 @@ export class CardPageComponent {
       this.cantidad++;
     else
     this.cantidad--;
-    console.log(this.cantidad)
   }
 
 }
