@@ -13,6 +13,7 @@ import { CustomerSupportComponent } from './pages/customer-support/customer-supp
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAcountComponent } from './pages/create-acount/create-acount.component';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,13 @@ import { RecoverPasswordComponent } from './pages/recover-password/recover-passw
     LoginComponent,
     CreateAcountComponent,
     RecoverPasswordComponent,
+
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     PrimerNgModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }
