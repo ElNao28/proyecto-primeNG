@@ -41,10 +41,14 @@ export class LoginComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-    console.log('Bienvenido');
 
-    if(this.myForm.controls['email'].toString() === 'luis@gmai.com'){
+    if(this.myForm.controls['email'].value.toString() === 'luis@gmai.com'){
+      if(this.validButton){
+      this.myForm.reset()
+      return;
+    }
       this.router.navigate(['/user/Inicio']);
+      localStorage.clear()
     }
 
   }
@@ -59,7 +63,7 @@ export class LoginComponent implements OnInit {
     if(this.counter.attems >= 8){
       alert('Se a alcanzado el numero maximo de intentos')
       this.validButton = true;
-      return
+      return;
     }
   }
 
