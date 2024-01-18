@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+
   constructor(private fb:FormBuilder, private router:Router){}
   ngOnInit(): void {
 
@@ -25,8 +27,8 @@ export class LoginComponent implements OnInit {
   };
 
   public myForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+    password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]]
   })
 
   isValidField( field: string ): boolean | null {
