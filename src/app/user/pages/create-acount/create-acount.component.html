@@ -31,8 +31,8 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Fecha de nacimiento</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="date" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="date" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="date" required>
+        <span *ngIf="isValidField('date')">Valor invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
@@ -45,44 +45,44 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Direccion</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="address" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+        <span *ngIf="isValidField('address')">Campo invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Codigo postal</label>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>  <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
-
+        <input formControlName="cp" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
+        <span *ngIf="isValidField('cp')">Codigo postal invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Correo electronico</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="email" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="email" required>
+        <span *ngIf="isValidField('email')">Correo electronico invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Numero de telefono</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="phone" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
+        <span *ngIf="isValidField('phone')">Numero de telefono invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Nombre de usuario</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="username" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+        <span *ngIf="isValidField('username')">Nombre de usuario invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Ingrese una contraseña</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="password" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
+        <span *ngIf="isValidField('password')">Contraseña invalida</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Repita la contraseña</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="password2" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
+        <span *ngIf="isValidField('password2')">Contraseña invalida</span>
       </div>
 
       <div class="field col-12 md:col-6">
@@ -97,8 +97,8 @@
 
       <div class="field col-12 md:col-6 w-full">
         <label class="mb-1" for="">Respuesta</label>
-        <input class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="respuesta" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+        <span *ngIf="isValidField('respuesta')">Valor invalido</span>
       </div>
 
     </form>
