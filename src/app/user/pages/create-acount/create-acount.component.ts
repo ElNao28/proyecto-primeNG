@@ -33,4 +33,9 @@ export class CreateAcountComponent {
     return this.myForm.controls[field].errors
       && this.myForm.controls[field].touched;
   }
+
+  prueba():void{
+    if(this.myForm.valid)
+    console.log("Hola Mundo")
+  }
 }

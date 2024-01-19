@@ -1,7 +1,7 @@
 <div class="m-3 flex justify-content-center">
   <div class="w-10 px-5 pb-5 bg-white shadow-6 border-round">
     <h2>Crear cuenta</h2>
-    <form [formGroup]="myForm" class="formgrid grid">
+    <form (submit)="prueba()" [formGroup]="myForm" class="formgrid grid">
 
       <div class="field col-12 md:col-6">
         <label for="firstname6">Nombre</label>
@@ -23,7 +23,7 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Genero</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="">
+        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="gender">
           <option value="">M</option>
           <option value="">F</option>
         </select>
@@ -37,7 +37,7 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Ciudad</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="">
+        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="city">
           <option value="">Platon sanchez</option>
           <option value="">Huejutla</option>
         </select>
@@ -87,7 +87,7 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Elija una pregunta secreta</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="">
+        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="question">
           <option value="">¿Color favorito?</option>
           <option value="">¿Nombre de tu mascota?</option>
           <option value="">¿Pelicula favorita?</option>
@@ -101,10 +101,11 @@
         <span *ngIf="isValidField('respuesta')">Valor invalido</span>
       </div>
 
+      <div>
+        <p-button type="submit" styleClass="p-button-secondary" label="Crear cuenta"></p-button>
+        <p-button routerLink="/user/login" styleClass="p-button-warning ml-2" label="Ya tengo una cuenta"></p-button>
+      </div>
+
     </form>
-    <div>
-      <p-button styleClass="p-button-secondary" label="Crear cuenta"></p-button>
-      <p-button routerLink="/user/login" styleClass="p-button-warning ml-2" label="Ya tengo una cuenta"></p-button>
-    </div>
   </div>
 </div>
