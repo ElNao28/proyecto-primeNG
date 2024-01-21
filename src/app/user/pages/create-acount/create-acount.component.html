@@ -1,7 +1,7 @@
 <div class="m-3 flex justify-content-center">
   <div class="w-10 px-5 pb-5 bg-white shadow-6 border-round">
     <h2>Crear cuenta</h2>
-    <form (submit)="prueba()" [formGroup]="myForm" class="formgrid grid">
+    <form (submit)="createNewUser()" [formGroup]="myForm" class="formgrid grid">
 
       <div class="field col-12 md:col-6">
         <label for="firstname6">Nombre</label>
@@ -10,36 +10,38 @@
       </div>
 
       <div class="field col-12 md:col-6">
-        <label for="lastname6">Primer apellido</label>
-        <input formControlName="lastnameFather" id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-        <span *ngIf="isValidField('lastnameFather')">Apellido invalido</span>
+        <label for="lastname">Primer apellido</label>
+        <input formControlName="lastname" id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        <span *ngIf="isValidField('lastname')">Apellido invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Segundo apellido</label>
-        <input formControlName="lastnameMother" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-        <span *ngIf="isValidField('lastnameMother')">Apellido invalido</span>
+        <input formControlName="motherLastname" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+        <span *ngIf="isValidField('motherLastname')">Apellido invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Genero</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="gender">
-          <option value="">M</option>
-          <option value="">F</option>
+        <select formControlName="gender" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="gender">
+          <option value="" disabled selected>Seleccione su genero</option>
+          <option value="M">M</option>
+          <option value="F">F</option>
         </select>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Fecha de nacimiento</label>
-        <input formControlName="date" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="date" required>
-        <span *ngIf="isValidField('date')">Valor invalido</span>
+        <input formControlName="birthdate" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="date" required>
+        <span *ngIf="isValidField('birthdate')">Valor inválido</span>
       </div>
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Ciudad</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="city">
-          <option value="">Platon sanchez</option>
-          <option value="">Huejutla</option>
+        <select formControlName="city" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="city">
+          <option value="" disabled selected>Seleccione su ciudad</option>
+          <option value="Platon sanchez">Platon sanchez</option>
+          <option value="Huejutla">Huejutla</option>
         </select>
       </div>
 
@@ -63,8 +65,8 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Numero de telefono</label>
-        <input formControlName="phone" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
-        <span *ngIf="isValidField('phone')">Numero de telefono invalido</span>
+        <input formControlName="cellphone" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
+        <span *ngIf="isValidField('cellphone')">Numero de telefono invalido</span>
       </div>
 
       <div class="field col-12 md:col-6">
@@ -87,18 +89,19 @@
 
       <div class="field col-12 md:col-6">
         <label class="mb-1" for="">Elija una pregunta secreta</label>
-        <select class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="question">
-          <option value="">¿Color favorito?</option>
-          <option value="">¿Nombre de tu mascota?</option>
-          <option value="">¿Pelicula favorita?</option>
-          <option value="">¿Fruta favorita?</option>
+        <select formControlName="question" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="question">
+          <option value="" disabled selected>Seleccione una pregunta</option>
+          <option value="color">¿Color favorito?</option>
+          <option value="mascota">¿Nombre de tu mascota?</option>
+          <option value="pelicula">¿Película favorita?</option>
+          <option value="fruta">¿Fruta favorita?</option>
         </select>
       </div>
 
       <div class="field col-12 md:col-6 w-full">
         <label class="mb-1" for="">Respuesta</label>
-        <input formControlName="respuesta" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-        <span *ngIf="isValidField('respuesta')">Valor invalido</span>
+        <input formControlName="answer" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+        <span *ngIf="isValidField('answer')">Valor invalido</span>
       </div>
 
       <div>
