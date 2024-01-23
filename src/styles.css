@@ -7,26 +7,4 @@ body {
   background-color: rgb(235, 232, 232);
 }
 
-footer{
-  text-align: center;
-  background-color: rgb(46, 45, 45);
-  color: aliceblue;
-  margin-top: auto;
-}
-.row a{
-  text-decoration: none;
-  color: rgb(255, 246, 246);
-}
-.redes-sociales {
-  margin-bottom: 10px;
-}
 
-.redes-sociales a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.redes-sociales img {
-  width: 30px;
-  height: 30px;
-}

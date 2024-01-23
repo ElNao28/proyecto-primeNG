@@ -76,14 +76,28 @@
       </div>
 
       <div class="field col-12 md:col-6">
-        <label class="mb-1" for="">Ingrese una contraseña</label>
-        <input formControlName="password" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
+        <label class="mb-1" for="">Ingrese una contraseña</label><br>
+        <p-password formControlName="password" styleClass="width: 100%;" [toggleMask]="true">
+          <ng-template pTemplate="footer">
+              <p-divider></p-divider>
+              <p class="mt-2">Sugerencias</p>
+              <ul class="pl-2 ml-2 mt-0" style="line-height: 1">
+                  <li>Al menos una minúscula</li>
+                  <li>Al menos una mayuscula</li>
+                  <li>Al menos un numero</li>
+                  <li>Al menos un caracter especial</li>
+                  <li>Minimo 8 caracteres</li>
+              </ul>
+          </ng-template>
+      </p-password><br>
+        <!-- <input formControlName="password" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required> -->
         <span *ngIf="isValidField('password')">Contraseña invalida</span>
       </div>
 
       <div class="field col-12 md:col-6">
-        <label class="mb-1" for="">Repita la contraseña</label>
-        <input formControlName="password2" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required>
+        <label class="mb-1" for="">Repita la contraseña</label><br>
+        <p-password [feedback]="false" formControlName="password2" [toggleMask]="true" class="w-1"></p-password>
+        <!-- <input formControlName="password2" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required> -->
         <span *ngIf="isValidField('password2')">Contraseña invalida</span>
       </div>
 

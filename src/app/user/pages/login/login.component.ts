@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   public myForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-    password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]]
+    password: ['', [Validators.required,Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]]
   })
 
   isValidField( field: string ): boolean | null {
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
 
   public getData(){
     //this.limitAtems()
+    console.log(this.myForm.value)
     if(this.myForm.invalid)
     {
       this.myForm.markAllAsTouched();

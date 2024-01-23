@@ -16,6 +16,8 @@ import { PaginatorModule } from 'primeng/paginator';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
+import { PasswordModule } from 'primeng/password';
+import {DividerModule} from 'primeng/divider'
 
 @NgModule({
   imports: [
@@ -37,8 +39,9 @@ import { CalendarModule } from 'primeng/calendar';
     PaginatorModule,
     CascadeSelectModule,
     InputTextareaModule,
-    CalendarModule
-
+    CalendarModule,
+    PasswordModule,
+    DividerModule,
   ]
 })
 export class PrimerNgModule { }
