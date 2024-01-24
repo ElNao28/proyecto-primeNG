@@ -120,11 +120,10 @@
           <span *ngIf="isValidField('answer')">Valor invalido</span>
         </div>
       </div>
-
       <div>
         <p-button routerLink="/user/login" styleClass="p-button-warning" *ngIf="formValue" label="Ya tengo una cuenta"></p-button>
-        <p-button type="submit" styleClass="p-button-secondary" *ngIf="!formValue" label="Crear cuenta"></p-button>
-        <button class="bg-blue-500 xl:ml-2 mt-1" (click)="formValueChangue()" pButton *ngIf="formValue" label="Siguiente"></button>
+        <p-button type="submit" styleClass="p-button-secondary" *ngIf="!formValue" [disabled]="myForm.invalid" label="Crear cuenta"></p-button>
+        <button class="bg-blue-500 xl:ml-2 mt-1" (click)="formValueChangue()" pButton *ngIf="formValue" [disabled]="validBtn()" label="Siguiente"></button>
         <button class="bg-blue-500 xl:ml-2" (click)="formValueChangue()" pButton *ngIf="!formValue" label="Anterior"></button>
       </div>
 

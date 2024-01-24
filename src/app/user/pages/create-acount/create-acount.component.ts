@@ -89,9 +89,19 @@ export class CreateAcountComponent implements OnInit {
       && this.myForm.controls[field].touched;
   }
 
-  prueba():void{
-    //if(this.myForm.valid)
-    console.log(this.newUser)
+  validBtn():boolean{
+    if(
+    !this.myForm.controls['name'].invalid &&
+    !this.myForm.controls['lastname'].invalid &&
+    !this.myForm.controls['motherLastname'].invalid &&
+    !this.myForm.controls['gender'].invalid &&
+    !this.myForm.controls['birthdate'].invalid &&
+    !this.myForm.controls['city'].invalid &&
+    !this.myForm.controls['address'].invalid &&
+    !this.myForm.controls['cp'].invalid )
+    return false
+
+    return true;
   }
 
 
