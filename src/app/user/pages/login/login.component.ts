@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/services.service';
 import { User } from '../../interfaces/users.interface';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,8 @@ export class LoginComponent implements OnInit {
 
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
   user!:User;
-
-  constructor(private fb:FormBuilder, private router:Router, private userService:UserService){}
+  key:string="6Le_PFspAAAAANjtS-GYPRh8xjiU46szehJjNz3u"
+  constructor(private fb:FormBuilder, private router:Router, private userService:UserService, private recaptchaV3Service:ReCaptchaV3Service){}
 
   ngOnInit(): void {
 
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   public attems:number = 1;
-  public validButton: boolean = false;
+  public validButton: boolean = true;
   public counter = {
     attems: 0,
   };
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
     console.log(this.myForm.value)
     if(this.myForm.invalid)
     {
+
       this.myForm.markAllAsTouched();
       return;
     }
@@ -77,6 +79,12 @@ export class LoginComponent implements OnInit {
     //   localStorage.clear()
     // }
 
+  }
+
+  handleSuccess(response:any): void {
+    // Este método se ejecutará cuando reCAPTCHA se resuelva con éxito
+    console.log('reCAPTCHA resuelto:', response);
+    this.validButton = false; // Habilitar el botón una vez que reCAPTCHA se haya resuelto
   }
 
   // public limitAtems(){

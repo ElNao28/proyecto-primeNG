@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CreateAcountComponent } from './pages/create-acount/create-acount.component';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     UserRoutingModule,
     PrimerNgModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ]
 })
 export class UserModule { }

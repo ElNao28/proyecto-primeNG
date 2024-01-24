@@ -12,9 +12,16 @@ export class CreateAcountComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private userService:UserService){}
 
+  formValue:boolean = true;
   ngOnInit(): void {
     this.userService.getUsers()
     .subscribe(users => this.newUser = users);
+  }
+  formValueChangue(){
+    if(this.formValue === true)
+    this.formValue = false;
+    else
+    this.formValue = true;
   }
 
   newUser:User[] = [];
