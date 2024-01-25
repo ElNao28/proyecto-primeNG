@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/users.interface';
+import { Email, Password, ResponseEmail } from '../interfaces/Email.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,13 @@ export class UserService {
 
   createUser(user:User):Observable<User>{
     return this.http.post<User>('http://localhost:3000/users', user);
+  }
+
+  sendCodePassword(email:Email){
+   return this.http.post<ResponseEmail>('http://localhost:3000/email',email) ;
+  }
+
+  updatePassword(id:number, password:Password){
+    return this.http.patch('http://localhost:3000/users/'+id,password)
   }
 }
