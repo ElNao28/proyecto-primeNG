@@ -17,7 +17,9 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { PasswordModule } from 'primeng/password';
-import {DividerModule} from 'primeng/divider'
+import {DividerModule} from 'primeng/divider';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -42,6 +44,9 @@ import {DividerModule} from 'primeng/divider'
     CalendarModule,
     PasswordModule,
     DividerModule,
+    AutoCompleteModule,
+    DialogModule,
+
   ]
 })
 export class PrimerNgModule { }
