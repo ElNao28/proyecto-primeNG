@@ -1,13 +1,33 @@
 
-  <div class="flex flex-column bg-pink-100 pb-4 shadow-5 w-full " *ngIf="ruta!='/user/crear-cuenta' ">
+<div >
+  <p-button class="chat" (click)="showDialog()" icon="pi pi-question-circle" styleClass="p-button-secondary" label="Tengo una duda"></p-button>
+    <p-dialog header="Preguntas frecuentes" [(visible)]="visible" [style]="{ width: '30vw', height: '500px' }">
+     <div class=" text-center border-round border-1 border-400 hover:bg-pink-100" *ngFor="let item of questions">
+        <p class="question" (click)="reponseQuestion(item.value)">{{item.question}}</p>
+      </div>
+      <div>
+        <div *ngIf="response.length >0">
+          <div *ngFor="let respon of response" class="pt-1">
+            <div class="flex justify-content-end">
+              <p class="t-2 balloon bg-blue-300 Pregunta">{{questions[respon.value].question}}</p>
+            </div>
+            <p class=" mt-2 balloon bg-pink-300 relative Respuesta">{{respon.response}}</p>
+          </div>
+        </div>
+      </div>
+    </p-dialog>
+</div>
 
+
+  <div class="flex flex-column bg-pink-100 pb-4 shadow-5 w-full " *ngIf="ruta!='/user/crear-cuenta' ">
     <div class="flex flex-column mx-6 align-items-center sm:flex-row">
       <img routerLink="Inicio" class="flex h-5rem m-2" src="../../../../assets/img/logo.png" alt="" />
-      <span class="p-input-icon-right w-full">
+      <!-- <span class="p-input-icon-right w-full">
         <i class="pi pi-search"></i>
-        <input class="w-full" type="text" pInputText />
-      </span>
-      <div class="flex flex-row">
+        <input [inputStyleClass]="'w-full'" [(ngModel)]="selectedItem" (completeMethod)="search($event)" [suggestions]="itemsS" field="title" placeholder="Search" p-autocomplete class="w-full" type="text" />
+      </span> -->
+        <p-autoComplete [inputStyleClass]="'w-full'" [(ngModel)]="selectedItem" (completeMethod)="search($event)" [suggestions]="itemsS" field="title" placeholder="Search" p-autocomplete class="w-full" type="text"></p-autoComplete>
+        <div class="flex flex-row">
         <p-splitButton
           label="Perfil"
           icon="pi pi-user"
@@ -22,7 +42,6 @@
         ></p-button>
       </div>
     </div>
-
       <div class="flex text-center lg:flex-row">
         <div class="col-3 sm:col-3">
           <a routerLink="Inicio">Inicio</a>
@@ -37,14 +56,11 @@
           <a routerLink="atencion-cliente">Atencion al cliente</a>
         </div>
       </div>
-
   </div>
-
   <div class="card flex mb-2">
     <p-breadcrumb class="w-full" [model]="itemsHome" [home]="home"></p-breadcrumb>
   </div>
   <router-outlet></router-outlet>
-
   <footer class="mt-auto py-1">
     <h2>Visita Nuestras Redes Sociales</h2>
           <div class="redes-sociales">

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/users.interface';
 import { Email, Password, ResponseEmail } from '../interfaces/Email.interface';
+import { Products } from '../interfaces/Products.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,8 @@ export class UserService {
 
   updatePassword(id:number, password:Password){
     return this.http.patch('http://localhost:3000/users/'+id,password)
+  }
+  searchAutocomplete(query:string){
+    return this.http.get<Products[]>(`https://fakestoreapi.com/products?q=${{query}}&_limit=5`);
   }
 }
