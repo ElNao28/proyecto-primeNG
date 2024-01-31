@@ -11,17 +11,13 @@ import { UserService } from '../../services/services.service';
 export class CreateAcountComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private userService:UserService){}
-
+  validButton:boolean = true;
   formValue:boolean = true;
+  key:string="6Le_PFspAAAAANjtS-GYPRh8xjiU46szehJjNz3u"
+
   ngOnInit(): void {
     this.userService.getUsers()
     .subscribe(users => this.newUser = users);
-  }
-  formValueChangue(){
-    if(this.formValue === true)
-    this.formValue = false;
-    else
-    this.formValue = true;
   }
 
   newUser:User[] = [];
@@ -39,7 +35,6 @@ export class CreateAcountComponent implements OnInit {
     cp:['', [Validators.required, Validators.minLength(5)]],
     email:['', [Validators.required, Validators.pattern(this.emailPattern)]],
     cellphone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-    username:['', [Validators.required, Validators.minLength(5)]],
     password:['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]],
     password2: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)],],
     question:['',[Validators.required]],
@@ -89,6 +84,14 @@ export class CreateAcountComponent implements OnInit {
       && this.myForm.controls[field].touched;
   }
 
+  formValueChangue(){
+    if(this.formValue === true)
+    this.formValue = false;
+    else
+    this.formValue = true;
+    this.validButton = true
+  }
+
   validBtn():boolean{
     if(
     !this.myForm.controls['name'].invalid &&
@@ -104,5 +107,27 @@ export class CreateAcountComponent implements OnInit {
     return true;
   }
 
+  handleSuccess(response:any): void {
+    // Este método se ejecutará cuando reCAPTCHA se resuelva con éxito
+    this.validButton = false; // Habilitar el botón una vez que reCAPTCHA se haya resuelto
+  }
+  handleexpired(response:any): void {
+
+    this.validButton = true;
+  }
+  handlereset(response:any): void {
+
+    this.validButton = true;
+  }
+
+  validCreateButton(){
+    if(this.myForm.invalid === false && this.validButton === false){
+      console.log("3:", this.myForm.invalid, this.validButton)
+      return false
+    }
+    else{
+      return true
+    }
+  }
 
 }

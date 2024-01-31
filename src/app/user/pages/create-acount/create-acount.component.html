@@ -1,30 +1,38 @@
 <div class="m-3 flex justify-content-center">
-  <div  class="xl:w-6 w-10 px-5 pb-5 bg-white shadow-6 border-round">
+  <div class="xl:w-6 w-10 px-5 pb-5 bg-white shadow-6 border-round">
     <h2>Crear cuenta</h2>
-    <form (submit)="createNewUser()" [formGroup]="myForm" >
+    <h3 *ngIf="formValue">Paso 1: Datos personales</h3>
+    <h3 *ngIf="!formValue">Paso 2: Datos virtuales</h3>
+    <form (submit)="createNewUser()" [formGroup]="myForm">
 
       <div *ngIf="formValue" class="formgrid grid">
         <div class="field col-12 md:col-6">
           <label for="firstname6">Nombre</label>
-          <input formControlName="name" id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+          <input formControlName="name" id="firstname6" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
           <span *ngIf="isValidField('name')">Nombre invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label for="lastname">Primer apellido</label>
-          <input formControlName="lastname" id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+          <input formControlName="lastname" id="lastname6" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
           <span *ngIf="isValidField('lastname')">Apellido invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Segundo apellido</label>
-          <input formControlName="motherLastname" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+          <input formControlName="motherLastname"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="text" required>
           <span *ngIf="isValidField('motherLastname')">Apellido invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Genero</label>
-          <select formControlName="gender" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="gender">
+          <select formControlName="gender"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            name="" id="gender">
             <option value="" disabled selected>Seleccione su genero</option>
             <option value="M">M</option>
             <option value="F">F</option>
@@ -33,12 +41,16 @@
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Fecha de nacimiento</label>
-          <input formControlName="birthdate" class=" text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="date" required>
+          <input formControlName="birthdate"
+            class=" text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="date" required>
           <span *ngIf="isValidField('birthdate')">Valor inválido</span>
         </div>
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Ciudad</label>
-          <select formControlName="city" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="city">
+          <select formControlName="city"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            name="" id="city">
             <option value="" disabled selected>Seleccione su ciudad</option>
             <option value="Platon sanchez">Platon sanchez</option>
             <option value="Huejutla">Huejutla</option>
@@ -47,13 +59,17 @@
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Direccion</label>
-          <input formControlName="address" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+          <input formControlName="address"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="text" required>
           <span *ngIf="isValidField('address')">Campo invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Codigo postal</label>
-          <input formControlName="cp" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
+          <input formControlName="cp"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="number" required>
           <span *ngIf="isValidField('cp')">Codigo postal invalido</span>
         </div>
       </div>
@@ -61,51 +77,55 @@
       <div *ngIf="!formValue" class="formgrid grid">
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Correo electronico</label>
-          <input formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="email" required>
+          <input formControlName="email"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="email" required>
           <span *ngIf="isValidField('email')">Correo electronico invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Numero de telefono</label>
-          <input formControlName="cellphone" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="number" required>
+          <input formControlName="cellphone"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="number" required>
           <span *ngIf="isValidField('cellphone')">Numero de telefono invalido</span>
         </div>
 
         <div class="field col-12 md:col-6">
-          <label class="mb-1" for="">Nombre de usuario</label>
-          <input formControlName="username" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
-          <span *ngIf="isValidField('username')">Nombre de usuario invalido</span>
-        </div>
-
-        <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Ingrese una contraseña</label><br>
-          <p-password [inputStyleClass]="'text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary xl:w-18rem'" formControlName="password" styleClass="width: 100%;" [toggleMask]="true">
+          <p-password
+            [inputStyleClass]="'text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary xl:w-18rem'"
+            formControlName="password" styleClass="width: 100%;" [toggleMask]="true">
             <ng-template pTemplate="footer">
-                <p-divider></p-divider>
-                <p class="mt-2">Sugerencias</p>
-                <ul class="pl-2 ml-2 mt-0" style="line-height: 1">
-                    <li>Al menos una minúscula</li>
-                    <li>Al menos una mayuscula</li>
-                    <li>Al menos un numero</li>
-                    <li>Al menos un caracter especial</li>
-                    <li>Minimo 8 caracteres</li>
-                </ul>
+              <p-divider></p-divider>
+              <p class="mt-2">Sugerencias</p>
+              <ul class="pl-2 ml-2 mt-0" style="line-height: 1">
+                <li>Al menos una minúscula</li>
+                <li>Al menos una mayuscula</li>
+                <li>Al menos un numero</li>
+                <li>Al menos un caracter especial</li>
+                <li>Minimo 8 caracteres</li>
+              </ul>
             </ng-template>
-        </p-password><br>
+          </p-password><br>
           <!-- <input formControlName="password" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required> -->
           <span *ngIf="isValidField('password')">Contraseña invalida</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Repita la contraseña</label><br>
-          <p-password [inputStyleClass]="'text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary xl:w-18rem'" [feedback]="false" formControlName="password2" [toggleMask]="true" class="w-1"></p-password>
+          <p-password
+            [inputStyleClass]="'text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary xl:w-18rem'"
+            [feedback]="false" formControlName="password2" [toggleMask]="true" class="w-1"></p-password>
           <!-- <input formControlName="password2" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="password" required> -->
           <br><span *ngIf="isValidField('password2')">Contraseña invalida</span>
         </div>
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Elija una pregunta secreta</label>
-          <select formControlName="question" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="" id="question">
+          <select formControlName="question"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            name="" id="question">
             <option value="" disabled selected>Seleccione una pregunta</option>
             <option value="color">¿Color favorito?</option>
             <option value="mascota">¿Nombre de tu mascota?</option>
@@ -114,17 +134,38 @@
           </select>
         </div>
 
-        <div class="field col-12 md:col-6 w-full">
+        <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Respuesta</label>
-          <input formControlName="answer" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" type="text" required>
+          <input formControlName="answer"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+            type="text" required>
           <span *ngIf="isValidField('answer')">Valor invalido</span>
         </div>
+        <div class="field col-12">
+          <ngx-recaptcha2 class="" #captchaElem
+            [siteKey]="key"
+            (success)="handleSuccess($event)"
+            [useGlobalDomain]="true"
+            (expire)="handleexpired($event)"
+            [size]="'normal'"
+            [hl]="'es'"
+            [theme]="'light'"
+            [type]="'image'"
+
+            >
+          </ngx-recaptcha2>
+        </div>
       </div>
+
       <div>
-        <p-button routerLink="/user/login" styleClass="p-button-warning" *ngIf="formValue" label="Ya tengo una cuenta"></p-button>
-        <p-button type="submit" styleClass="p-button-secondary" *ngIf="!formValue" [disabled]="myForm.invalid" label="Crear cuenta"></p-button>
-        <button class="bg-blue-500 xl:ml-2 mt-1" (click)="formValueChangue()" pButton *ngIf="formValue" [disabled]="validBtn()" label="Siguiente"></button>
-        <button class="bg-blue-500 xl:ml-2" (click)="formValueChangue()" pButton *ngIf="!formValue" label="Anterior"></button>
+        <p-button routerLink="/user/login" styleClass="p-button-warning" *ngIf="formValue"
+          label="Ya tengo una cuenta"></p-button>
+        <p-button type="submit" styleClass="p-button-secondary" *ngIf="!formValue" [disabled]="validCreateButton()"
+          label="Crear cuenta"></p-button>
+        <button class="bg-blue-500 xl:ml-2 mt-1" (click)="formValueChangue()" pButton *ngIf="formValue"
+          [disabled]="validBtn()" label="Siguiente"></button>
+        <button class="bg-blue-500 xl:ml-2" (click)="formValueChangue()" pButton *ngIf="!formValue"
+          label="Anterior"></button>
       </div>
 
     </form>

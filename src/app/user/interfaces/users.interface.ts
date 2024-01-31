@@ -12,7 +12,6 @@ export interface User {
   cp:             number;
   email:          string;
   cellphone:      number;
-  username:       string;
   password:       string;
   question:       string;
   answer:         string;

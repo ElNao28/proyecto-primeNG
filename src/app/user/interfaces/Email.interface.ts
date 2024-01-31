@@ -1,5 +1,4 @@
 export interface Email{
-  username:string;
   to: string;
 }
 export interface ResponseEmail{

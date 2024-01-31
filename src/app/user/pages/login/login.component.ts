@@ -56,31 +56,6 @@ export class LoginComponent implements OnInit {
       else
         return console.log(false)
     })
-
-    // this.userService.getUser(this.myForm.controls['email'].value).subscribe(data =>{
-    //     this.user = data
-    //     if(!this.user) return console.log("No existe")
-    //     console.log(this.user)
-
-    //     if(this.user.password === this.myForm.controls['password'].value){
-    //       this.router.navigate(['/user/Inicio']);
-    //       localStorage.clear()
-    //     }
-    //     else{
-    //       return console.log('Contraseña Incorrecta')
-    //     }
-
-    //   })
-
-    // if(this.myForm.controls['email'].value.toString() === 'luis@gmai.com'){
-    //   if(this.validButton){
-    //   this.myForm.reset()
-    //   return;
-    // }
-    //   this.router.navigate(['/user/Inicio']);
-    //   localStorage.clear()
-    // }
-
   }
 
   handleSuccess(response:any): void {

@@ -14,16 +14,18 @@ export class RecoverPasswordComponent{
   constructor(private fb:FormBuilder,private router:Router, private userService:UserService){}
 
   user!:User;
-  validStatus:boolean = false;
   newPassword!:string;
   code!:string;
-  validCode:boolean = false;
   idUser!:number;
+  validStatus:boolean = false;
+  validCode:boolean = false;
+  validQuestion:boolean = true;
 
+  //Formulario donde se ingresa el codigo enviado por correo
   formCode:FormGroup = this.fb.group({
     code:['',[Validators.required, Validators.minLength(10)]],
   })
-
+  //Formulario donde se ingresa la nueva contraseña y su respectiva repeticion
   formNewPassword:FormGroup = this.fb.group({
     password:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]],
     confirmPassword:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]]
@@ -33,14 +35,17 @@ export class RecoverPasswordComponent{
       this.isFieldOneEqualFieldTwo('password','confirmPassword')
     ]
   })
-
-  myForm:FormGroup = this.fb.group({
-    username:['', [Validators.required, Validators.minLength(5)]],
+  //Formulario donde se ingresa el correo electronico
+  formEmail:FormGroup = this.fb.group({
     email:['', [Validators.required, Validators.email]],
+  })
+
+  formQuestion:FormGroup = this.fb.group({
     question:['',[Validators.required]],
     respuesta:['', [Validators.required, Validators.minLength(3)]]
   })
 
+  //Funcion para validar que las contraseñas ingresadas en el formulario sean iguales
   public isFieldOneEqualFieldTwo( field1: string, field2: string ) {
 
     return ( formGroup: AbstractControl ): ValidationErrors | null => {
@@ -58,42 +63,46 @@ export class RecoverPasswordComponent{
     }
 
   }
-
+  //Funcion para validar que los datos introducidos en los inputs de el Formcodigo sean correctos
   isValidFieldCode(field: string ): boolean | null {
     return this.formCode.controls[field].errors
       && this.formCode.controls[field].touched;
   }
+  //Funcion para validar que los datos introducidos en los inputs de el Formemail sean correctos
   isValidField( field: string ): boolean | null {
-    return this.myForm.controls[field].errors
-      && this.myForm.controls[field].touched;
+    return this.formEmail.controls[field].errors
+      && this.formEmail.controls[field].touched;
   }
-
+  //Funcion para validar que los datos introducidos en los inputs de el Formcontraseña sean correctos
   isValidFieldPassword( field: string ): boolean | null {
     return this.formNewPassword.controls[field].errors
       && this.formNewPassword.controls[field].touched;
   }
-
+  //Funcion para validar que los datos introducidos en los inputs de el FormQuestion sean correctos
+  isValidFieldQuestion( field: string ): boolean | null {
+    return this.formQuestion.controls[field].errors
+      && this.formQuestion.controls[field].touched;
+  }
+  //funcion que manda a llamar al servicio para hacer la peticion al API y validar que el correo introducido sea correcto
   public getData(){
-    if(this.myForm.invalid)
+    if(this.formEmail.invalid)
     {
-      this.myForm.markAllAsTouched();
+      this.formEmail.markAllAsTouched();
       return;
     }
 
-    this.userService.getUser(this.myForm.controls['email'].value).subscribe(data =>{
+    this.userService.getUser(this.formEmail.controls['email'].value).subscribe(data =>{
         this.user = data
         if(!this.user) return console.log("No existe")
 
         console.log(this.user);
 
         if(
-            this.myForm.controls['username'].value === this.user.username &&
-            this.myForm.controls['email'].value === this.user.email
+            this.formEmail.controls['email'].value === this.user.email
           ){
             this.idUser = data.id;
             const dataSend:Email = {
-              to:this.myForm.controls['email'].value,
-              username:this.myForm.controls['username'].value
+              to:this.formEmail.controls['email'].value,
             }
             this.userService.sendCodePassword(dataSend).subscribe( data =>{
               console.log("enviado", data)
@@ -120,7 +129,7 @@ export class RecoverPasswordComponent{
       return false
   }
   validButton():boolean{
-    if(this.myForm.invalid)
+    if(this.formEmail.invalid)
       return true
     else
     return false
