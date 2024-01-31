@@ -43,32 +43,34 @@ export class LoginComponent implements OnInit {
 
   public getData(){
     //this.limitAtems()
-    console.log(this.myForm.value)
     if(this.myForm.invalid)
     {
-
       this.myForm.markAllAsTouched();
       return;
     }
 
-    this.userService.getUser(this.myForm.controls['email'].value).subscribe(data =>{
-        this.user = data
-        if(!this.user) return console.log("No existe")
-        console.log(this.user)
+    this.userService.validUser(this.myForm.value).subscribe(res=>{
+      console.log(res)
+      if(res.status == 200)
+        this.router.navigate(['/user/inicio'])
+      else
+        return console.log(false)
+    })
 
-        if(this.user.password === this.myForm.controls['password'].value){
-          this.router.navigate(['/user/Inicio']);
-          localStorage.clear()
-        }
-        else{
-          return console.log('Contraseña Incorrecta')
-        }
+    // this.userService.getUser(this.myForm.controls['email'].value).subscribe(data =>{
+    //     this.user = data
+    //     if(!this.user) return console.log("No existe")
+    //     console.log(this.user)
 
-      })
+    //     if(this.user.password === this.myForm.controls['password'].value){
+    //       this.router.navigate(['/user/Inicio']);
+    //       localStorage.clear()
+    //     }
+    //     else{
+    //       return console.log('Contraseña Incorrecta')
+    //     }
 
-
-
-
+    //   })
 
     // if(this.myForm.controls['email'].value.toString() === 'luis@gmai.com'){
     //   if(this.validButton){
@@ -83,7 +85,6 @@ export class LoginComponent implements OnInit {
 
   handleSuccess(response:any): void {
     // Este método se ejecutará cuando reCAPTCHA se resuelva con éxito
-    console.log('reCAPTCHA resuelto:', response);
     this.validButton = false; // Habilitar el botón una vez que reCAPTCHA se haya resuelto
   }
 

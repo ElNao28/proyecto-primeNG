@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/users.interface';
+import { ResponseLogin, User, ValidUser } from '../interfaces/users.interface';
 import { Email, Password, ResponseEmail } from '../interfaces/Email.interface';
 import { Products } from '../interfaces/Products.interface';
 
@@ -33,5 +33,8 @@ export class UserService {
   }
   searchAutocomplete(query:string){
     return this.http.get<Products[]>(`https://fakestoreapi.com/products?q=${{query}}&_limit=5`);
+  }
+  validUser(data:ValidUser){
+    return this.http.post<ResponseLogin>('http://localhost:3000/login', data);
   }
 }
