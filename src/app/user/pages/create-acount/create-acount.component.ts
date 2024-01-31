@@ -14,8 +14,8 @@ export class CreateAcountComponent implements OnInit {
 
   formValue:boolean = true;
   ngOnInit(): void {
-    this.userService.getUsers()
-    .subscribe(users => this.newUser = users);
+    // this.userService.getUsers()
+    // .subscribe(users => this.newUser = users);
   }
   formValueChangue(){
     if(this.formValue === true)
