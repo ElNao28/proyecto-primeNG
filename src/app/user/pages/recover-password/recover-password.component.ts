@@ -19,7 +19,8 @@ export class RecoverPasswordComponent{
   idUser!:number;
   validStatus:boolean = false;
   validCode:boolean = false;
-  validQuestion:boolean = true;
+  validQuestion:boolean = true; 
+  yaquedo:boolean = true;
 
   //Formulario donde se ingresa el codigo enviado por correo
   formCode:FormGroup = this.fb.group({
@@ -41,7 +42,6 @@ export class RecoverPasswordComponent{
   })
 
   formQuestion:FormGroup = this.fb.group({
-    question:['',[Validators.required]],
     respuesta:['', [Validators.required, Validators.minLength(3)]]
   })
 
@@ -95,8 +95,6 @@ export class RecoverPasswordComponent{
         this.user = data
         if(!this.user) return console.log("No existe")
 
-        console.log(this.user);
-
         if(
             this.formEmail.controls['email'].value === this.user.email
           ){
@@ -105,11 +103,11 @@ export class RecoverPasswordComponent{
               to:this.formEmail.controls['email'].value,
             }
             this.userService.sendCodePassword(dataSend).subscribe( data =>{
-              console.log("enviado", data)
               if(data.status === 200){
-                console.log("aprro si jalo")
                 this.validStatus = true;
+                
                 this.code = data.codigo;
+                console.log(this.code)
               }
             })
           }
@@ -137,10 +135,16 @@ export class RecoverPasswordComponent{
 
   validatedCode(){
     if(this.code === this.formCode.controls['code'].value){
-      console.log("Es valido")
       this.validCode = true;
     }
     return
+  }
+  validBtnQuestion(){
+    if(this.formQuestion.invalid)return
+    if(this.user.answer === this.formQuestion.controls['respuesta'].value){
+      this.validQuestion = false;
+      this.yaquedo = false
+    }
   }
 
   updatePassword(){
