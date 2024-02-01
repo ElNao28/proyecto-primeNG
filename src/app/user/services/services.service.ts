@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ResponseLogin, User, ValidUser } from '../interfaces/users.interface';
 import { Email, Password, ResponseEmail } from '../interfaces/Email.interface';
 import { Products } from '../interfaces/Products.interface';
+import { CpData } from '../interfaces/Cp.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,8 @@ export class UserService {
   }
   validUser(data:ValidUser){
     return this.http.post<ResponseLogin>('http://localhost:3000/login', data);
+  }
+  getCityByCp(cp:string){
+    return this.http.get<CpData>(`https://api.copomex.com/query/info_cp/${{cp}}?token=8b1a7aac-9e0e-4224-aabb-d49b6848ea85`)
   }
 }
