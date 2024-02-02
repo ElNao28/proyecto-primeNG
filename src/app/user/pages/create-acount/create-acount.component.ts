@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { User } from '../../interfaces/users.interface';
 import { UserService } from '../../services/services.service';
+import { CpData } from '../../interfaces/Cp.interface';
 
 @Component({
   selector: 'app-create-acount',
@@ -11,18 +12,24 @@ import { UserService } from '../../services/services.service';
 export class CreateAcountComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private userService:UserService){}
+
   validButton:boolean = true;
   formValue:boolean = true;
   key:string="6Le_PFspAAAAANjtS-GYPRh8xjiU46szehJjNz3u"
+  newUser:User[] = [];
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+  cities:CpData[] = [];
 
   ngOnInit(): void {
     this.userService.getUsers()
     .subscribe(users => this.newUser = users);
   }
-
-  newUser:User[] = [];
-
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+  getCities(){
+      this.userService.getCityByCp("92132").subscribe(data =>{
+        console.log(data)
+        this.cities = data;
+      })
+  }
 
   myForm:FormGroup = this.fb.group({
     name:['', [Validators.required, Validators.minLength(3)]],
@@ -60,7 +67,7 @@ export class CreateAcountComponent implements OnInit {
     return age >= 18 ? null : { underage: true };
   }
 
-  public isFieldOneEqualFieldTwo( field1: string, field2: string ) {
+  isFieldOneEqualFieldTwo( field1: string, field2: string ) {
 
     return ( formGroup: AbstractControl ): ValidationErrors | null => {
 
@@ -129,5 +136,7 @@ export class CreateAcountComponent implements OnInit {
       return true
     }
   }
+
+
 
 }

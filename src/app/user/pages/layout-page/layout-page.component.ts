@@ -17,6 +17,7 @@ interface Response{
   response: string;
   value:number;
 }
+
 @Component({
   selector: 'app-layout-page',
   templateUrl: './layout-page.component.html',

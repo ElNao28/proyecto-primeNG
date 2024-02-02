@@ -48,12 +48,11 @@
         </div>
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Ciudad</label>
-          <select formControlName="city"
+          <select *ngFor="let item of cities" formControlName="city"
             class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
             name="" id="city">
             <option value="" disabled selected>Seleccione su ciudad</option>
-            <option value="Platon sanchez">Platon sanchez</option>
-            <option value="Huejutla">Huejutla</option>
+            <option  value="{{item.response.ciudad}}">{{item.response.ciudad}}</option>
           </select>
         </div>
 
@@ -67,7 +66,7 @@
 
         <div class="field col-12 md:col-6">
           <label class="mb-1" for="">Codigo postal</label>
-          <input formControlName="cp"
+          <input ()="getCities()" formControlName="cp"
             class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
             type="number" required>
           <span *ngIf="isValidField('cp')">Codigo postal invalido</span>

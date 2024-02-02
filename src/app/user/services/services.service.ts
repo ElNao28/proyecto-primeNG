@@ -39,6 +39,6 @@ export class UserService {
     return this.http.post<ResponseLogin>('http://localhost:3000/login', data);
   }
   getCityByCp(cp:string){
-    return this.http.get<CpData>(`https://api.copomex.com/query/info_cp/${{cp}}?token=8b1a7aac-9e0e-4224-aabb-d49b6848ea85`)
+    return this.http.get<CpData[]>("https://api.copomex.com/query/info_cp/"+cp+"?token=8b1a7aac-9e0e-4224-aabb-d49b6848ea85")
   }
 }
